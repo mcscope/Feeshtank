@@ -138,6 +138,16 @@ class BallFrame extends javax.swing.JFrame implements javax.swing.RootPaneContai
         setAlwaysOnTop(true);
         setLocationRelativeTo(null);
         setTitle("Feesh");
+        //HACK to change ClassName to make Feesh stack in windows and be handled by xmonad
+     try{
+        Toolkit xToolkit = Toolkit.getDefaultToolkit();
+        java.lang.reflect.Field awtAppClassNameField =
+                xToolkit.getClass().getDeclaredField("awtAppClassName");
+        awtAppClassNameField.setAccessible(true);
+        awtAppClassNameField.set(xToolkit, "Feesh");
+     }
+     catch (Exception e)
+     {}
 
         MouseInputAdapter ml = new MouseInputAdapter() {
             public void mouseDragged(MouseEvent event) {
