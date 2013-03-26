@@ -25,7 +25,7 @@ public class BallClient implements FeeshContainer {
     private static ArrayList<Feesh> myIncomingTransferList;
 
     private static Ball bouncy;
-    private static int numBalls = 10;
+    private static int numBalls = 3;
     private static int UPDATE_RATE = 40;     //should evenly divide 1000  (number of updates a second)
     private int updateCount = 0;
 
