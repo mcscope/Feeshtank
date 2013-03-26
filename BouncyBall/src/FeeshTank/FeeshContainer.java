@@ -15,4 +15,11 @@ interface FeeshContainer {
     public ArrayList<Feesh> getFeeshListExcluding(Feesh a);
 
     public boolean removeFeesh(Feesh toRemove);
+
+
+    public void sendList();
+    public void receiveList();
+
+
+
 }

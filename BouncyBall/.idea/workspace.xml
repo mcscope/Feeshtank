@@ -67,35 +67,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jumpBall.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FeeshTank/jumpBall.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="10" selection-start="324" selection-end="324" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="docComment;class#jumpBall#0" expanded="false" />
-                <element signature="method#jumpBall#0;class#jumpBall#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wrapBall.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FeeshTank/wrapBall.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="7" selection-start="566" selection-end="566" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="docComment;class#wrapBall#0" expanded="false" />
-                <element signature="method#step#0;class#wrapBallFrame#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="BallClient.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FeeshTank/BallClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="30" selection-start="748" selection-end="748" vertical-scroll-proportion="-74.5">
-              <folding />
+            <state line="89" column="49" selection-start="2415" selection-end="2415" vertical-scroll-proportion="-192.5">
+              <folding>
+                <element signature="method#removeFeesh#0;class#BallClient#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -103,7 +81,7 @@
       <file leaf-file-name="Ball.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FeeshTank/Ball.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="98" column="48" selection-start="2589" selection-end="2637" vertical-scroll-proportion="-15.2">
+            <state line="83" column="46" selection-start="2221" selection-end="2221" vertical-scroll-proportion="-4.366667">
               <folding>
                 <element signature="method#Ball#0;class#Ball#0" expanded="false" />
                 <element signature="method#step#0;class#Ball#0" expanded="false" />
@@ -129,16 +107,7 @@
       <file leaf-file-name="BallServer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FeeshTank/BallServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="5" selection-start="273" selection-end="273" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FeeshContainer.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/FeeshTank/FeeshContainer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="51" selection-start="388" selection-end="388" vertical-scroll-proportion="0.6968641">
+            <state line="9" column="13" selection-start="193" selection-end="193" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -155,6 +124,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="HelloNetworkServer.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../SamsNetworkCode/HelloNetworkServer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="41" selection-start="257" selection-end="257" vertical-scroll-proportion="0.3006012">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -165,8 +143,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/../TranslucentShapes/src/translucentshapes/ControlFrame.java" />
-        <option value="$PROJECT_DIR$/src/AWTUtilitiesWrapper.java" />
         <option value="$PROJECT_DIR$/../TranslucentShapes/src/translucentshapes/FancyFrame.java" />
         <option value="$PROJECT_DIR$/src/FeeshContainer.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
@@ -180,6 +156,8 @@
         <option value="$PROJECT_DIR$/src/FeeshTank/Ball.java" />
         <option value="$PROJECT_DIR$/src/FeeshTank/jumpBall.java" />
         <option value="$PROJECT_DIR$/src/FeeshTank/wrapBall.java" />
+        <option value="$PROJECT_DIR$/src/FeeshTank/ServerSocket.java" />
+        <option value="$PROJECT_DIR$/src/FeeshTank/FeeshContainer.java" />
         <option value="$PROJECT_DIR$/src/FeeshTank/BallClient.java" />
       </list>
     </option>
@@ -227,70 +205,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BouncyBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BouncyBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BouncyBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BouncyBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FeeshTank" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wrapBall.java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BouncyBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BouncyBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FeeshTank" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BouncyBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BouncyBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -300,12 +214,13 @@
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Modules" />
     <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="OverrideImplement.combined" value="true" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="options.lastSelected" value="preferences.keymap" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TranslucentShapes/src/translucentshapes" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SamsNetworkCode" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -486,8 +401,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936507" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24774194" sideWeight="0.8473389" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15266107" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24903226" sideWeight="0.7605042" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2394958" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925257" sideWeight="0.6706349" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -555,11 +470,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../TranslucentShapes/src/translucentshapes/FancyFrame.form">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="125" column="98" selection-start="7325" selection-end="7325" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../TranslucentShapes/src/translucentshapes/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="40" selection-start="58" selection-end="58" vertical-scroll-proportion="0.06995885" />
@@ -595,25 +505,9 @@
         <state line="80" column="0" selection-start="3328" selection-end="3328" vertical-scroll-proportion="0.035460994" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FeeshTank/Feesh.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="36" selection-start="495" selection-end="495" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FeeshTank/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="40" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FeeshTank/BallServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="5" selection-start="273" selection-end="273" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -628,19 +522,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FeeshTank/wrapBall.java">
+    <entry file="file://$PROJECT_DIR$/src/FeeshTank/Feesh.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="7" selection-start="566" selection-end="566" vertical-scroll-proportion="0.0">
+        <state line="24" column="36" selection-start="495" selection-end="495" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="docComment;class#wrapBall#0" expanded="false" />
-            <element signature="method#step#0;class#wrapBallFrame#0" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FeeshTank/BallServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="13" selection-start="193" selection-end="193" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FeeshTank/FeeshContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="21" selection-start="440" selection-end="440" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FeeshTank/Ball.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="48" selection-start="2589" selection-end="2637" vertical-scroll-proportion="-15.2">
+        <state line="83" column="46" selection-start="2221" selection-end="2221" vertical-scroll-proportion="-4.366667">
           <folding>
             <element signature="method#Ball#0;class#Ball#0" expanded="false" />
             <element signature="method#step#0;class#Ball#0" expanded="false" />
@@ -662,16 +569,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FeeshTank/BallClient.java">
+    <entry file="file://$PROJECT_DIR$/src/FeeshTank/wrapBall.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="30" selection-start="748" selection-end="748" vertical-scroll-proportion="-74.5">
-          <folding />
+        <state line="28" column="7" selection-start="566" selection-end="566" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="docComment;class#wrapBall#0" expanded="false" />
+            <element signature="method#step#0;class#wrapBallFrame#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FeeshTank/FeeshContainer.java">
+    <entry file="file://$PROJECT_DIR$/src/FeeshTank/BallClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="51" selection-start="388" selection-end="388" vertical-scroll-proportion="0.6968641">
+        <state line="89" column="49" selection-start="2415" selection-end="2415" vertical-scroll-proportion="-192.5">
+          <folding>
+            <element signature="method#removeFeesh#0;class#BallClient#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SamsNetworkCode/HelloNetworkServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="41" selection-start="257" selection-end="257" vertical-scroll-proportion="0.3006012">
           <folding />
         </state>
       </provider>
