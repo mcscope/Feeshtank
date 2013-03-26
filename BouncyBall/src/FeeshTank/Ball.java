@@ -19,8 +19,8 @@ public class Ball extends Feesh {
     public BallFrame myFrame;
     private boolean displaying;
 
-    public Ball(FeeshContainer curTank) {
-        super(curTank);
+    public Ball() {
+        super();
         displaying = false;
 
 
@@ -46,6 +46,7 @@ public class Ball extends Feesh {
         displaying = false;
         if (myFrame != null) {
             myFrame.dispose();
+            myFrame=null;
         }
 
     }

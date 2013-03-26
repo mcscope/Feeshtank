@@ -11,10 +11,10 @@ import java.io.Serializable;
  * To change this template use File | Settings | File Templates.
  */
 abstract public class Feesh implements Serializable  {
-    FeeshContainer tank;
 
-    Feesh( FeeshContainer intank) {
-            tank=intank;
+
+    Feesh( ) {
+
     }
 
     abstract public void step();

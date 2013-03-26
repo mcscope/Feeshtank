@@ -42,11 +42,11 @@ public class BallClient implements FeeshContainer {
 
             int ballSelector = random.nextInt(6);
             if (ballSelector < 2)
-                bouncy = new jumpBall(this);
+                bouncy = new jumpBall();
             else if (ballSelector > 4)
-                bouncy = new wrapBall(this);
+                bouncy = new wrapBall();
             else
-                bouncy = new Ball(this);
+                bouncy = new Ball();
 
             bouncy.startDisplaying();
             myFeeshList.add(bouncy);
@@ -71,25 +71,34 @@ public class BallClient implements FeeshContainer {
                         receiveList();
 
                     }
-
+                    try {
+                        Thread.sleep(1000 / UPDATE_RATE);  // milliseconds
+                    } catch (InterruptedException ex) {
+                    }
                     }
             }
         };
 
         Thread sendThread = new Thread() {
             public void run() {
-                if (updateCount % 100 == 0) {
+              while(true)
+              {if (updateCount % 100 == 0) {
                     //spawn server
 
                     System.out.println("SPAWN SERVER");
                     sendList();
                 }
-
+                  try {
+                      Thread.sleep(1000 / UPDATE_RATE);  // milliseconds
+                  } catch (InterruptedException ex) {
+                  }
+              }
             }
         };
         receiveThread.start();  // Callback run()
-        gameThread.start();  // Callback run()
         sendThread.start();  // Callback run()
+
+        gameThread.start();  // Callback run()
 
 
     }
@@ -97,7 +106,7 @@ public class BallClient implements FeeshContainer {
     private void step() {
         // Execute one update step
         updateCount += 1;
-                        System.out.println(updateCount);
+             //           System.out.println(updateCount);
 
 
         //all the feesh must update

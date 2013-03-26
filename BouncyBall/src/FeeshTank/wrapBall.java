@@ -10,9 +10,9 @@ import java.awt.*;
  * To change this template use File | Settings | File Templates.
  */
 public class wrapBall extends Ball {
-    public wrapBall( FeeshContainer inTank) {
+    public wrapBall( ) {
 
-        super( inTank);
+        super( );
 
     }
 

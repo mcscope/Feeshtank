@@ -10,8 +10,8 @@ import java.awt.*;
  * To change this template use File | Settings | File Templates.
  */
 public class jumpBall extends Ball {
-    public jumpBall( FeeshContainer inTank) {
-        super( inTank);
+    public jumpBall() {
+        super( );
     }
 
 
