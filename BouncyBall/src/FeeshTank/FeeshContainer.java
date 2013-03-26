@@ -20,7 +20,7 @@ abstract class FeeshContainer {
     ArrayList<Feesh> myOutgoingTransferList=new ArrayList<Feesh>();
     ArrayList<Feesh> myIncomingTransferList=new ArrayList<Feesh>();
     public int port = 2002;
-    public String targetIP = "192.168.2.4";
+    public String targetIP = "192.168.2.8";
     public boolean debug=true;
 
     abstract public ArrayList<Feesh> getFeeshList();

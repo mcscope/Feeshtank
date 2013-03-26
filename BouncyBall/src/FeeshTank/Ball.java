@@ -137,7 +137,7 @@ class BallFrame extends javax.swing.JFrame implements javax.swing.RootPaneContai
         AWTUtilitiesWrapper.setWindowShape(this, shape);
         setAlwaysOnTop(true);
         setLocationRelativeTo(null);
-
+        setTitle("Feesh");
 
         MouseInputAdapter ml = new MouseInputAdapter() {
             public void mouseDragged(MouseEvent event) {
