@@ -16,14 +16,18 @@ public class jumpBall extends Ball {
 
 
     public void createBall(GraphicsConfiguration translucencyCapableGC) {
-        myFrame = new jumpBallFrame(translucencyCapableGC);
+        myFrame = new jumpBallFrame(translucencyCapableGC,this,ballSavedDataExists);
     }
 
 }
 class jumpBallFrame extends BallFrame
 {
-    public jumpBallFrame(GraphicsConfiguration gc)
-    {super(gc);}
+    public jumpBallFrame(GraphicsConfiguration gc, Ball parentBall, boolean restoreFromSaved)
+    {
+        super(gc,parentBall,restoreFromSaved);
+    }
+
+
     public void step()
     {
         Rectangle screenDimensions = screen.getBounds();
@@ -33,32 +37,32 @@ class jumpBallFrame extends BallFrame
         Rectangle bounds = getBounds();
         double speedLimit=10.0;
         //if going too fast!
-        if(xspeed>speedLimit || xspeed<-1*speedLimit)
+        if(myBall.xspeed>speedLimit || myBall.xspeed<-1*speedLimit)
         {
-            xspeed*=slowMultiple;
+            myBall.xspeed*=slowMultiple;
         }
-        if(yspeed>speedLimit || yspeed<-1*speedLimit)
+        if(myBall.yspeed>speedLimit || myBall.yspeed<-1*speedLimit)
         {
-            yspeed*=slowMultiple ;
+            myBall.yspeed*=slowMultiple ;
         }
 
 
-        if ((0 > x && xspeed<0 )||( screenDimensions.width < x + ballWidth  && xspeed>0 )) {
-            xspeed *= bounceMultiplier;//reverse
+        if ((0 > myBall.x&& myBall.xspeed<0 )||( screenDimensions.width < myBall.x+ myBall.ballWidth  && myBall.xspeed>0 )) {
+            myBall.xspeed *= bounceMultiplier;//reverse
         }
 
-        if  ((0 > y && yspeed<0 )||( screenDimensions.height < y + ballHeight  && yspeed>0 )) {
-            yspeed *= bounceMultiplier;//reverse
+        if  ((0 > myBall.y&& myBall.yspeed<0 )||( screenDimensions.height < myBall.y+ myBall.ballHeight  && myBall.yspeed>0 )) {
+            myBall.yspeed *= bounceMultiplier;//reverse
         }
 
 
-        x += xspeed;
-        y += yspeed;
-//        x=x % screenDimensions.width;
+        myBall.x+= myBall.xspeed;
+        myBall.y+= myBall.yspeed;
+//        x=myBall.x% screenDimensions.width;
 //        y= y% screenDimensions.height;
 
-        bounds.x = (int) x;
-        bounds.y = (int) y;
+        bounds.x= (int) myBall.x;
+        bounds.y = (int) myBall.y;
 
         setBounds(bounds);
     }

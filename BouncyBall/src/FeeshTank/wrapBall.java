@@ -18,14 +18,14 @@ public class wrapBall extends Ball {
 
 
     public void createBall(GraphicsConfiguration translucencyCapableGC) {
-        myFrame = new wrapBallFrame(translucencyCapableGC);
+        myFrame = new wrapBallFrame(translucencyCapableGC,this,ballSavedDataExists);
     }
 
 }
 class wrapBallFrame extends BallFrame
 {
-    public wrapBallFrame(GraphicsConfiguration gc)
-    {super(gc);
+    public wrapBallFrame(GraphicsConfiguration gc, Ball parentBall, boolean restoreFromSaved)
+    {super(gc,parentBall,restoreFromSaved);
 
     }
 
@@ -39,25 +39,25 @@ class wrapBallFrame extends BallFrame
         double speedLimit=10.0;
         double slowMultiple=.9;
         //if going too fast!
-        if(xspeed>speedLimit || xspeed<-1*speedLimit)
+        if(myBall.xspeed>speedLimit || myBall.xspeed<-1*speedLimit)
         {
-            xspeed*=slowMultiple;
+            myBall.xspeed*=slowMultiple;
         }
-        if(yspeed>speedLimit || yspeed<-1*speedLimit)
+        if(myBall.yspeed>speedLimit || myBall.yspeed<-1*speedLimit)
         {
-            yspeed*=slowMultiple ;
+            myBall.yspeed*=slowMultiple ;
         }
 
-        x += xspeed;
-        y += yspeed;
-        x=(x>screenDimensions.width+ballWidth)? x  % screenDimensions.width-ballWidth: x ;
-        y=(y>screenDimensions.height+ballHeight)? y  % screenDimensions.height -ballHeight: y ;
+        myBall.x += myBall.xspeed;
+        myBall.y+= myBall.yspeed;
+        myBall.x=(myBall.x>screenDimensions.width+myBall.ballWidth)? myBall.x  % screenDimensions.width-myBall.ballWidth: myBall.x ;
+        myBall.y=(myBall.y>screenDimensions.height+myBall.ballHeight)? myBall.y % screenDimensions.height -myBall.ballHeight: myBall.y;
 //        y= y% screenDimensions.height;
-        x=(x<-ballWidth)? x+ screenDimensions.width +ballWidth : x;
-        y=(y<-ballHeight)? y+ screenDimensions.height +ballWidth: y;
+        myBall.x=(myBall.x<-myBall.ballWidth)? myBall.x+ screenDimensions.width +myBall.ballWidth : myBall.x;
+        myBall.y=(myBall.y<-myBall.ballHeight)? myBall.y+ screenDimensions.height +myBall.ballWidth: myBall.y;
 
-        bounds.x = (int) x-ballHeight/2;
-        bounds.y = (int) y-ballWidth/2;
+        bounds.x = (int) myBall.x-myBall.ballHeight/2;
+        bounds.y= (int) myBall.y-myBall.ballWidth/2;
 
         setBounds(bounds);
 

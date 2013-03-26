@@ -19,10 +19,7 @@ import java.util.Random;
  */
 
 
-public class BallClient implements FeeshContainer {
-    private static ArrayList<Feesh> myFeeshList;
-    private static ArrayList<Feesh> myOutgoingTransferList;
-    private static ArrayList<Feesh> myIncomingTransferList;
+public class BallClient extends FeeshContainer {
 
     private static Ball bouncy;
     private static int numBalls = 3;
@@ -32,12 +29,6 @@ public class BallClient implements FeeshContainer {
     private final Random random = new Random();
 
     public BallClient() {
-
-
-        myFeeshList = new ArrayList<Feesh>();
-        myOutgoingTransferList = new ArrayList<Feesh>();
-        myIncomingTransferList= new ArrayList<Feesh>();
-
         for (int x = 0; x < numBalls; x += 1) {
 
             int ballSelector = random.nextInt(6);
@@ -67,7 +58,6 @@ public class BallClient implements FeeshContainer {
                     if (updateCount % 100 == 0) {
                         //try to connect to server
 
-                        System.out.println("CHECK FOR SERVER");
                         receiveList();
 
                     }
@@ -85,8 +75,7 @@ public class BallClient implements FeeshContainer {
               {if (updateCount % 100 == 0) {
                     //spawn server
 
-                    System.out.println("SPAWN SERVER");
-                    sendList();
+                  sendList();
                 }
                   try {
                       Thread.sleep(1000 / UPDATE_RATE);  // milliseconds
@@ -147,49 +136,6 @@ public class BallClient implements FeeshContainer {
 
     public boolean removeFeesh(Feesh toRemove) {
         return myFeeshList.remove(toRemove);
-    }
-
-    @Override
-    public void sendList() {
-        try {
-            Socket s = new Socket("192.168.2.4", 2002);
-            OutputStream os = s.getOutputStream();
-            ObjectOutputStream oos = new ObjectOutputStream(os);
-            System.out.println(myOutgoingTransferList.size()+ "feesh to transfer");
-            oos.writeObject(myOutgoingTransferList);
-            myOutgoingTransferList.clear();
-            oos.close();
-            os.close();
-            s.close();
-            System.out.println("Feesh successfully transfered");
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-
-    }
-
-    @Override
-    public void receiveList() {
-        int port = 2002;
-        try {
-
-            ServerSocket ss = new ServerSocket(port);
-            Socket s = ss.accept();
-            InputStream is = s.getInputStream();
-            ObjectInputStream ois = new ObjectInputStream(is);
-            ArrayList<Feesh> receivedList = (ArrayList<Feesh>) ois.readObject();
-            System.out.println(receivedList.size() +"feesh recieved: " +receivedList);
-           for(Feesh curFeesh :receivedList)
-            {
-                curFeesh.startDisplaying();
-            }
-            myIncomingTransferList.addAll(receivedList);
-            is.close();
-            s.close();
-            ss.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
 }

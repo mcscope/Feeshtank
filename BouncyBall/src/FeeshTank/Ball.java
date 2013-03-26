@@ -19,6 +19,16 @@ public class Ball extends Feesh {
     public BallFrame myFrame;
     private boolean displaying;
 
+    boolean ballSavedDataExists=false;
+    double x;
+    double y;
+    double xspeed;
+    double yspeed;
+    int ballWidth;
+    int ballHeight;
+    Color ballColorTrans, ballColorDark;
+
+
     public Ball() {
         super();
         displaying = false;
@@ -72,11 +82,14 @@ public class Ball extends Feesh {
             }
         }
         createBall(translucencyCapableGC);
+        ballSavedDataExists=true;
         displaying = true;
     }
 
     public void createBall(GraphicsConfiguration translucencyCapableGC) {
-        myFrame = new BallFrame(translucencyCapableGC);
+
+            myFrame = new BallFrame(translucencyCapableGC,this,ballSavedDataExists);
+
     }
 
     boolean isDisplaying() {
@@ -90,31 +103,29 @@ class BallFrame extends javax.swing.JFrame implements javax.swing.RootPaneContai
 
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    double x;
-    double y;
-    double xspeed;
-    double yspeed;
-    int ballWidth;
-    int ballHeight;
-    Color ballColorTrans, ballColorDark;
+
     GraphicsConfiguration screen;
     private final Random random = new Random();
     private static final double RANGE = 10;
+    Ball myBall;
 
-    public BallFrame(GraphicsConfiguration gc) {
+    public BallFrame(GraphicsConfiguration gc, Ball parentBall, boolean restoreFromSaved) {
         super(gc);
         screen = gc;
+        myBall=parentBall;
         initComponents();
         jPanel1.setOpaque(false);
-        xspeed = random.nextDouble() * (RANGE) - (RANGE / 2);
-        yspeed = random.nextDouble() * (RANGE) - (RANGE / 2);
 
+        if(!restoreFromSaved)
+        {
+        myBall.xspeed = random.nextDouble() * (RANGE) - (RANGE / 2);
+        myBall.yspeed = random.nextDouble() * (RANGE) - (RANGE / 2);
         setColor();
+        myBall.x= screen.getBounds().getWidth() / 2;
+        myBall.y= screen.getBounds().getHeight() / 2;
+        }
         initWindow();
-        x = screen.getBounds().getWidth() / 2;
-
-        y = screen.getBounds().getHeight() / 2;
-    }
+        }
 
     private void initWindow() {
         this.setVisible(true);
@@ -130,8 +141,8 @@ class BallFrame extends javax.swing.JFrame implements javax.swing.RootPaneContai
 
         MouseInputAdapter ml = new MouseInputAdapter() {
             public void mouseDragged(MouseEvent event) {
-                xspeed = event.getX() - ballHeight / 2;
-                yspeed = event.getY() - ballWidth / 2;
+                myBall.xspeed = event.getX() - myBall.ballHeight / 2;
+                myBall.yspeed = event.getY() - myBall.ballWidth / 2;
 
             }
 
@@ -165,16 +176,16 @@ class BallFrame extends javax.swing.JFrame implements javax.swing.RootPaneContai
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ballHeight = 100;
-        ballWidth = 100;
+        myBall.ballHeight = 100;
+        myBall.ballWidth = 100;
 
         jPanel1 = new javax.swing.JPanel() {
             protected void paintComponent(Graphics g) {
                 if (g instanceof Graphics2D && true) {
 
                     Paint p =
-                            new GradientPaint(0.0f, 0.0f, ballColorTrans,
-                                    getWidth(), getHeight(), ballColorDark, true);
+                            new GradientPaint(0.0f, 0.0f, myBall.ballColorTrans,
+                                    getWidth(), getHeight(), myBall.ballColorDark, true);
                     Graphics2D g2d = (Graphics2D) g;
                     g2d.setPaint(p);
                     g2d.fillRect(0, 0, getWidth(), getHeight());
@@ -188,7 +199,7 @@ class BallFrame extends javax.swing.JFrame implements javax.swing.RootPaneContai
 
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(ballHeight, ballWidth));
+        setMinimumSize(new java.awt.Dimension(myBall.ballHeight, myBall.ballWidth));
         setUndecorated(true);
 
         jPanel1.setDoubleBuffered(false);
@@ -203,11 +214,11 @@ class BallFrame extends javax.swing.JFrame implements javax.swing.RootPaneContai
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
                 jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, ballWidth, Short.MAX_VALUE)
+                        .addGap(0, myBall.ballWidth, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
                 jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, ballHeight, Short.MAX_VALUE)
+                        .addGap(0, myBall.ballHeight, Short.MAX_VALUE)
         );
 
 
@@ -224,8 +235,8 @@ class BallFrame extends javax.swing.JFrame implements javax.swing.RootPaneContai
         int R = random.nextInt(155) + 100;
         int G = random.nextInt(200) + 55;
         int B = random.nextInt(200) + 55;
-        ballColorTrans = new Color(R, G, B, 0);
-        ballColorDark = new Color(R, G, B, 255);
+        myBall.ballColorTrans = new Color(R, G, B, 0);
+        myBall.ballColorDark = new Color(R, G, B, 255);
     }
 
     public void step() {
@@ -236,35 +247,35 @@ class BallFrame extends javax.swing.JFrame implements javax.swing.RootPaneContai
         double bounceMultiplier = -1;
 
         //if going too fast!
-        if (xspeed > speedLimit || xspeed < -1 * speedLimit) {
-            xspeed *= slowMultiple;
+        if (myBall.xspeed > speedLimit || myBall.xspeed < -1 * speedLimit) {
+            myBall.xspeed *= slowMultiple;
         }
-        if (yspeed > speedLimit || yspeed < -1 * speedLimit) {
-            yspeed *= slowMultiple;
+        if (myBall.yspeed > speedLimit || myBall.yspeed < -1 * speedLimit) {
+            myBall.yspeed *= slowMultiple;
         }
 
         //add a little random walk to prevent them getting stuck in the long term
-        if (xspeed < 1.0)
-            xspeed += 0.05 - 0.1 * random.nextDouble();
-        if (yspeed < 1.0)
-            yspeed += 0.05 - 0.1 * random.nextDouble();
+        if (myBall.xspeed < 1.0)
+            myBall.xspeed += 0.05 - 0.1 * random.nextDouble();
+        if (myBall.yspeed < 1.0)
+            myBall.yspeed += 0.05 - 0.1 * random.nextDouble();
 
 
-        if ((0 > x && xspeed < 0) || (screenDimensions.width < x + ballWidth && xspeed > 0)) {
-            xspeed *= bounceMultiplier;//reverse
+        if ((0 > myBall.x&& myBall.xspeed < 0) || (screenDimensions.width < myBall.x+myBall. ballWidth && myBall.xspeed > 0)) {
+            myBall.xspeed *= bounceMultiplier;//reverse
         }
 
-        if ((0 > y && yspeed < 0) || (screenDimensions.height < y + ballHeight && yspeed > 0)) {
-            yspeed *= bounceMultiplier;//reverse
+        if ((0 > myBall.y&& myBall.yspeed < 0) || (screenDimensions.height < myBall.y+ myBall.ballHeight && myBall.yspeed > 0)) {
+            myBall.yspeed *= bounceMultiplier;//reverse
         }
 
 
-        x += xspeed;
-        y += yspeed;
+        myBall.x+= myBall.xspeed;
+        myBall.y+= myBall.yspeed;
 //        x=x % screenDimensions.width;
 //        y= y% screenDimensions.height;
-        bounds.x = (int) x;
-        bounds.y = (int) y;
+        bounds.x= (int) myBall.x;
+        bounds.y = (int) myBall.y;
 
         setBounds(bounds);
     }
