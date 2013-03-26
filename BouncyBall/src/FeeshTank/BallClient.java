@@ -1,11 +1,5 @@
 package FeeshTank;
 
-import java.io.InputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
-import java.net.ServerSocket;
-import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
@@ -23,8 +17,6 @@ public class BallClient extends FeeshContainer {
 
     private static Ball bouncy;
     private static int numBalls = 3;
-    private static int UPDATE_RATE = 40;     //should evenly divide 1000  (number of updates a second)
-    private int updateCount = 0;
 
     private final Random random = new Random();
 
@@ -44,58 +36,14 @@ public class BallClient extends FeeshContainer {
 
         }
 
-        Thread gameThread = new Thread() {
-            public void run() {
-                while (true) {
-                step();
-                }
-            }
-        };
-
-        Thread receiveThread = new Thread() {
-            public void run() {
-                while (true) {
-                    if (updateCount % 100 == 0) {
-                        //try to connect to server
-
-                        receiveList();
-
-                    }
-                    try {
-                        Thread.sleep(1000 / UPDATE_RATE);  // milliseconds
-                    } catch (InterruptedException ex) {
-                    }
-                    }
-            }
-        };
-
-        Thread sendThread = new Thread() {
-            public void run() {
-              while(true)
-              {if (updateCount % 100 == 0) {
-                    //spawn server
-
-                  sendList();
-                }
-                  try {
-                      Thread.sleep(1000 / UPDATE_RATE);  // milliseconds
-                  } catch (InterruptedException ex) {
-                  }
-              }
-            }
-        };
-        receiveThread.start();  // Callback run()
-        sendThread.start();  // Callback run()
-
-        gameThread.start();  // Callback run()
+        createThreads();
 
 
     }
 
-    private void step() {
+    public void step() {
         // Execute one update step
-        updateCount += 1;
-             //           System.out.println(updateCount);
+        //           System.out.println(updateCount);
 
 
         //all the feesh must update
@@ -137,6 +85,8 @@ public class BallClient extends FeeshContainer {
     public boolean removeFeesh(Feesh toRemove) {
         return myFeeshList.remove(toRemove);
     }
+
+
 
 }
 

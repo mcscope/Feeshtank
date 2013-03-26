@@ -10,7 +10,7 @@ public class HelloNetworkClient
 		Socket mySocket = null;
 		BufferedReader instream = null;
 		PrintWriter outstream = null;
-		String destination = "192.168.1.5";
+		String destination = "192.168.2.8";
 		int portNum = 5556;
 		
 		try
