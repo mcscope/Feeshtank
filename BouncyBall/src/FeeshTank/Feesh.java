@@ -1,6 +1,7 @@
 package FeeshTank;
 
 import java.awt.*;
+import java.io.Serializable;
 
 /**
  * Created with IntelliJ IDEA.
@@ -9,23 +10,24 @@ import java.awt.*;
  * Time: 3:10 PM
  * To change this template use File | Settings | File Templates.
  */
-abstract public class Feesh extends javax.swing.JFrame implements javax.swing.RootPaneContainer {
+abstract public class Feesh implements Serializable  {
     FeeshContainer tank;
 
-    Feesh(GraphicsConfiguration gc, FeeshContainer intank) {
-            super(gc);
+    Feesh( FeeshContainer intank) {
             tank=intank;
     }
 
     abstract public void step();
 
-    public void die() {
-         dispose();
-
-    }
+   abstract public void die();
 
     public void collide(Feesh collidingFeesh)
     {}
+
+   abstract public void stopDisplaying();
+   abstract public void startDisplaying();
+    abstract boolean isDisplaying();
+
 }
 
 

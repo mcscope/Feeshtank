@@ -10,8 +10,23 @@ import java.awt.*;
  * To change this template use File | Settings | File Templates.
  */
 public class wrapBall extends Ball {
-    public wrapBall(GraphicsConfiguration gc, FeeshContainer inTank) {
-        super(gc, inTank);
+    public wrapBall( FeeshContainer inTank) {
+
+        super( inTank);
+
+    }
+
+
+    public void createBall(GraphicsConfiguration translucencyCapableGC) {
+        myFrame = new wrapBallFrame(translucencyCapableGC);
+    }
+
+}
+class wrapBallFrame extends BallFrame
+{
+    public wrapBallFrame(GraphicsConfiguration gc)
+    {super(gc);
+
     }
 
     public void step()
@@ -48,6 +63,7 @@ public class wrapBall extends Ball {
 
 
     }
+
 
 
 }

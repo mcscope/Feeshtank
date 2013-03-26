@@ -1,4 +1,5 @@
-package FeeshTank; /**
+package FeeshTank;
+/**
  * Created with IntelliJ IDEA.
  * User: Christopher
  * Date: 4/30/12
@@ -15,6 +16,77 @@ import java.util.Random;
 
 
 public class Ball extends Feesh {
+    public BallFrame myFrame;
+    private boolean displaying;
+
+    public Ball(FeeshContainer curTank) {
+        super(curTank);
+        displaying = false;
+
+
+    }
+
+
+    public void step() {
+        if (displaying) {
+            if (myFrame != null) {
+                myFrame.step();
+           if(!myFrame.isDisplayable())
+                stopDisplaying();
+            }
+
+        }
+    }
+
+    public void die() {
+        stopDisplaying();
+    }
+
+    public void stopDisplaying() {
+        displaying = false;
+        if (myFrame != null) {
+            myFrame.dispose();
+        }
+
+    }
+
+    public void startDisplaying() {
+        stopDisplaying();
+
+        GraphicsConfiguration translucencyCapableGC = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
+        if (!AWTUtilitiesWrapper.isTranslucencyCapable(translucencyCapableGC)) {
+            translucencyCapableGC = null;
+
+            GraphicsEnvironment env =
+                    GraphicsEnvironment.getLocalGraphicsEnvironment();
+            GraphicsDevice[] devices = env.getScreenDevices();
+
+            for (int i = 0; i < devices.length && translucencyCapableGC == null; i++) {
+                GraphicsConfiguration[] configs = devices[i].getConfigurations();
+                for (int j = 0; j < configs.length && translucencyCapableGC == null; j++) {
+                    if (AWTUtilitiesWrapper.isTranslucencyCapable(configs[j])) {
+                        translucencyCapableGC = configs[j];
+                    }
+                }
+            }
+        }
+        createBall(translucencyCapableGC);
+        displaying = true;
+    }
+
+    public void createBall(GraphicsConfiguration translucencyCapableGC) {
+        myFrame = new BallFrame(translucencyCapableGC);
+    }
+
+    boolean isDisplaying() {
+        return displaying;
+    }
+
+}
+
+class BallFrame extends javax.swing.JFrame implements javax.swing.RootPaneContainer {
+    //global vars
+
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     double x;
@@ -25,9 +97,11 @@ public class Ball extends Feesh {
     int ballHeight;
     Color ballColorTrans, ballColorDark;
     GraphicsConfiguration screen;
+    private final Random random = new Random();
+    private static final double RANGE = 10;
 
-    public Ball(GraphicsConfiguration gc, FeeshContainer inTank) {
-        super(gc, inTank);
+    public BallFrame(GraphicsConfiguration gc) {
+        super(gc);
         screen = gc;
         initComponents();
         jPanel1.setOpaque(false);
@@ -36,9 +110,9 @@ public class Ball extends Feesh {
 
         setColor();
         initWindow();
-        x=screen.getBounds().getWidth()/2;
+        x = screen.getBounds().getWidth() / 2;
 
-        y=screen.getBounds().getHeight()/2;
+        y = screen.getBounds().getHeight() / 2;
     }
 
     private void initWindow() {
@@ -55,15 +129,15 @@ public class Ball extends Feesh {
 
         MouseInputAdapter ml = new MouseInputAdapter() {
             public void mouseDragged(MouseEvent event) {
-                xspeed=event.getX() - ballHeight/2;
-                yspeed=event.getY() - ballWidth/2;
+                xspeed = event.getX() - ballHeight / 2;
+                yspeed = event.getY() - ballWidth / 2;
 
             }
-            public void mousePressed(MouseEvent event  )
-            {
+
+            public void mousePressed(MouseEvent event) {
                 if (event.getButton() == MouseEvent.BUTTON3) {
 
-                    die();
+                    dispose();
                 }
 
 
@@ -80,9 +154,6 @@ public class Ball extends Feesh {
 
     }
 
-
-    private final Random random = new Random();
-    private static final double RANGE = 10;
 
     /**
      * This method is called from within the constructor to
@@ -147,29 +218,42 @@ public class Ball extends Feesh {
     }// </editor-fold>//GEN-END:initComponents
 
 
+    public void setColor() {
+
+        int R = random.nextInt(155) + 100;
+        int G = random.nextInt(200) + 55;
+        int B = random.nextInt(200) + 55;
+        ballColorTrans = new Color(R, G, B, 0);
+        ballColorDark = new Color(R, G, B, 255);
+    }
+
     public void step() {
         Rectangle screenDimensions = screen.getBounds();
         Rectangle bounds = getBounds();
-        double speedLimit=15.0;
-        double slowMultiple=.9;
+        double speedLimit = 15.0;
+        double slowMultiple = .9;
         double bounceMultiplier = -1;
 
         //if going too fast!
-        if(xspeed>speedLimit || xspeed<-1*speedLimit)
-        {
-            xspeed*=slowMultiple;
+        if (xspeed > speedLimit || xspeed < -1 * speedLimit) {
+            xspeed *= slowMultiple;
         }
-        if(yspeed>speedLimit || yspeed<-1*speedLimit)
-        {
-            yspeed*=slowMultiple ;
+        if (yspeed > speedLimit || yspeed < -1 * speedLimit) {
+            yspeed *= slowMultiple;
         }
 
+        //add a little random walk to prevent them getting stuck in the long term
+        if (xspeed < 1.0)
+            xspeed += 0.05 - 0.1 * random.nextDouble();
+        if (yspeed < 1.0)
+            yspeed += 0.05 - 0.1 * random.nextDouble();
 
-        if ((0 > x && xspeed<0 )||( screenDimensions.width < x + ballWidth  && xspeed>0 )) {
+
+        if ((0 > x && xspeed < 0) || (screenDimensions.width < x + ballWidth && xspeed > 0)) {
             xspeed *= bounceMultiplier;//reverse
-    }
+        }
 
-    if  ((0 > y && yspeed<0 )||( screenDimensions.height < y + ballHeight  && yspeed>0 )) {
+        if ((0 > y && yspeed < 0) || (screenDimensions.height < y + ballHeight && yspeed > 0)) {
             yspeed *= bounceMultiplier;//reverse
         }
 
@@ -183,17 +267,6 @@ public class Ball extends Feesh {
 
         setBounds(bounds);
     }
-
-
-    public void setColor() {
-
-        int R = random.nextInt(155)+100;
-        int G = random.nextInt(200)+55;
-        int B = random.nextInt(200)+55;
-        ballColorTrans = new Color(R, G, B, 0);
-        ballColorDark = new Color(R, G, B, 255);
-    }
-
 
 
 }

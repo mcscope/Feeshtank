@@ -10,48 +10,58 @@ import java.awt.*;
  * To change this template use File | Settings | File Templates.
  */
 public class jumpBall extends Ball {
-    public jumpBall(GraphicsConfiguration gc, FeeshContainer inTank) {
-        super(gc, inTank);
+    public jumpBall( FeeshContainer inTank) {
+        super( inTank);
     }
 
 
-                      public void step()
-                      {
-    Rectangle screenDimensions = screen.getBounds();
-                          double slowMultiple=.8;
-                          double bounceMultiplier = -8;
+    public void createBall(GraphicsConfiguration translucencyCapableGC) {
+        myFrame = new jumpBallFrame(translucencyCapableGC);
+    }
 
-                          Rectangle bounds = getBounds();
-    double speedLimit=10.0;
-    //if going too fast!
-    if(xspeed>speedLimit || xspeed<-1*speedLimit)
+}
+class jumpBallFrame extends BallFrame
+{
+    public jumpBallFrame(GraphicsConfiguration gc)
+    {super(gc);}
+    public void step()
     {
-        xspeed*=slowMultiple;
-    }
-    if(yspeed>speedLimit || yspeed<-1*speedLimit)
-    {
-        yspeed*=slowMultiple ;
-    }
+        Rectangle screenDimensions = screen.getBounds();
+        double slowMultiple=.8;
+        double bounceMultiplier = -8;
+
+        Rectangle bounds = getBounds();
+        double speedLimit=10.0;
+        //if going too fast!
+        if(xspeed>speedLimit || xspeed<-1*speedLimit)
+        {
+            xspeed*=slowMultiple;
+        }
+        if(yspeed>speedLimit || yspeed<-1*speedLimit)
+        {
+            yspeed*=slowMultiple ;
+        }
 
 
-    if ((0 > x && xspeed<0 )||( screenDimensions.width < x + ballWidth  && xspeed>0 )) {
-        xspeed *= bounceMultiplier;//reverse
-    }
+        if ((0 > x && xspeed<0 )||( screenDimensions.width < x + ballWidth  && xspeed>0 )) {
+            xspeed *= bounceMultiplier;//reverse
+        }
 
-    if  ((0 > y && yspeed<0 )||( screenDimensions.height < y + ballHeight  && yspeed>0 )) {
-        yspeed *= bounceMultiplier;//reverse
-    }
+        if  ((0 > y && yspeed<0 )||( screenDimensions.height < y + ballHeight  && yspeed>0 )) {
+            yspeed *= bounceMultiplier;//reverse
+        }
 
 
-    x += xspeed;
-    y += yspeed;
+        x += xspeed;
+        y += yspeed;
 //        x=x % screenDimensions.width;
 //        y= y% screenDimensions.height;
 
-    bounds.x = (int) x;
-    bounds.y = (int) y;
+        bounds.x = (int) x;
+        bounds.y = (int) y;
 
-    setBounds(bounds);
-                      }
+        setBounds(bounds);
+    }
+
+
 }
-

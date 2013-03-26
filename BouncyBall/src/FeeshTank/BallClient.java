@@ -4,6 +4,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.Random;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,43 +17,32 @@ import java.util.Iterator;
 
 public class BallClient implements FeeshContainer {
     private static ArrayList<Feesh> myFeeshList;
+    private static ArrayList<Feesh> myTransferList;
+
     private static Ball bouncy;
     private static int numBalls = 10    ;
     private static int UPDATE_RATE = 40;     //should evenly divide 1000  (number of updates a second)
+    private int updateCount=0;
 
-
+    private final Random random = new Random();
     public BallClient() {
 
-        GraphicsConfiguration translucencyCapableGC = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
-        if (!AWTUtilitiesWrapper.isTranslucencyCapable(translucencyCapableGC)) {
-            translucencyCapableGC = null;
 
-            GraphicsEnvironment env =
-                    GraphicsEnvironment.getLocalGraphicsEnvironment();
-            GraphicsDevice[] devices = env.getScreenDevices();
-
-            for (int i = 0; i < devices.length && translucencyCapableGC == null; i++) {
-                GraphicsConfiguration[] configs = devices[i].getConfigurations();
-                for (int j = 0; j < configs.length && translucencyCapableGC == null; j++) {
-                    if (AWTUtilitiesWrapper.isTranslucencyCapable(configs[j])) {
-                        translucencyCapableGC = configs[j];
-                    }
-                }
-            }
-        }
 
         myFeeshList = new ArrayList<Feesh>();
+        myTransferList = new ArrayList<Feesh>();
 
         for (int x = 0; x < numBalls; x+=1) {
 
+            int ballSelector=random.nextInt(6);
+            if(ballSelector<2)
+               bouncy = new jumpBall(this);
+            else if(ballSelector>4)
+                bouncy=new wrapBall(this);
+            else
+                bouncy=new Ball(this);
 
-//            bouncy = new wrapBall(translucencyCapableGC, this);
-//           myFeeshList.add(bouncy);
-//            bouncy = new jumpBall(translucencyCapableGC, this);
-//            myFeeshList.add(bouncy);
-//
-
-            bouncy = new Ball(translucencyCapableGC, this);
+        bouncy.startDisplaying();
             myFeeshList.add(bouncy);
 
         }
@@ -61,17 +51,30 @@ public class BallClient implements FeeshContainer {
             public void run() {
                 while (true) {
                     // Execute one update step
-                  Feesh curFeesh;
+                    updateCount+=1;
+
+                    if(updateCount%1000==0)
+                    {   //check to see if a feesh should enter or leave
+
+
+                    }
+
+
+                    //all the feesh must update
+                    Feesh curFeesh;
                     Iterator<Feesh> e = myFeeshList.iterator();
                     while (e.hasNext()) {
                         curFeesh =  e.next();
                        curFeesh.step();
-                        if(!curFeesh.isDisplayable())
+                        if(!curFeesh.isDisplaying())
                         {
-                        e.remove();
+                            myTransferList.add(curFeesh);
+                            e.remove();
                         }
 
                     }
+
+
                     // Delay for timing control and give other threads a chance
                     try {
                         Thread.sleep(1000 / UPDATE_RATE);  // milliseconds

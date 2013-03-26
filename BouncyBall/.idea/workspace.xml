@@ -57,7 +57,105 @@
     <favorites_list name="BouncyBall" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FeeshTank/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="40" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jumpBall.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FeeshTank/jumpBall.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="10" selection-start="324" selection-end="324" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="docComment;class#jumpBall#0" expanded="false" />
+                <element signature="method#jumpBall#0;class#jumpBall#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wrapBall.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FeeshTank/wrapBall.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="7" selection-start="566" selection-end="566" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="docComment;class#wrapBall#0" expanded="false" />
+                <element signature="method#step#0;class#wrapBallFrame#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BallClient.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FeeshTank/BallClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="30" selection-start="748" selection-end="748" vertical-scroll-proportion="-74.5">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Ball.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FeeshTank/Ball.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="98" column="48" selection-start="2589" selection-end="2637" vertical-scroll-proportion="-15.2">
+              <folding>
+                <element signature="method#Ball#0;class#Ball#0" expanded="false" />
+                <element signature="method#step#0;class#Ball#0" expanded="false" />
+                <element signature="method#die#0;class#Ball#0" expanded="false" />
+                <element signature="method#stopDisplaying#0;class#Ball#0" expanded="false" />
+                <element signature="method#isDisplaying#0;class#Ball#0" expanded="false" />
+                <element signature="method#BallFrame#0;class#BallFrame#0" expanded="false" />
+                <element signature="method#initWindow#0;class#BallFrame#0" expanded="false" />
+                <element signature="class#3528:3930" expanded="false" />
+                <element signature="method#mouseDragged#0;class#3528:3930" expanded="false" />
+                <element signature="method#mousePressed#0;class#3528:3930" expanded="false" />
+                <element signature="docComment;method#initComponents#0;class#BallFrame#0" expanded="false" />
+                <element signature="method#initComponents#0;class#BallFrame#0" expanded="false" />
+                <element signature="e#4407#4496#0" expanded="false" />
+                <element signature="method#setColor#0;class#BallFrame#0" expanded="false" />
+                <element signature="method#step#0;class#BallFrame#0" expanded="false" />
+                <element signature="e#7726#7765#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BallServer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FeeshTank/BallServer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="5" selection-start="273" selection-end="273" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FeeshContainer.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/FeeshTank/FeeshContainer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="51" selection-start="388" selection-end="388" vertical-scroll-proportion="0.6968641">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Feesh.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FeeshTank/Feesh.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="36" selection-start="495" selection-end="495" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -77,11 +175,12 @@
         <option value="$PROJECT_DIR$/src/BallClient.java" />
         <option value="$PROJECT_DIR$/src/wrapBall.java" />
         <option value="$PROJECT_DIR$/src/Ball.java" />
-        <option value="$PROJECT_DIR$/src/FeeshTank/wrapBall.java" />
-        <option value="$PROJECT_DIR$/src/FeeshTank/jumpBall.java" />
+        <option value="$PROJECT_DIR$/src/FeeshTank/BallServer.java" />
         <option value="$PROJECT_DIR$/src/FeeshTank/Feesh.java" />
-        <option value="$PROJECT_DIR$/src/FeeshTank/BallClient.java" />
         <option value="$PROJECT_DIR$/src/FeeshTank/Ball.java" />
+        <option value="$PROJECT_DIR$/src/FeeshTank/jumpBall.java" />
+        <option value="$PROJECT_DIR$/src/FeeshTank/wrapBall.java" />
+        <option value="$PROJECT_DIR$/src/FeeshTank/BallClient.java" />
       </list>
     </option>
   </component>
@@ -90,9 +189,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="y" value="22" />
     <option name="width" value="1616" />
-    <option name="height" value="916" />
+    <option name="height" value="886" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -108,7 +207,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -119,7 +218,84 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BouncyBall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BouncyBall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BouncyBall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BouncyBall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BouncyBall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FeeshTank" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wrapBall.java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BouncyBall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BouncyBall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FeeshTank" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BouncyBall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BouncyBall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Modules" />
@@ -135,9 +311,9 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -295,26 +471,26 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="916" extended-state="0" />
-    <editor active="false" />
+    <frame x="-8" y="22" width="1616" height="886" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925257" sideWeight="0.6706349" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936507" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.09383754" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15266107" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.71031743" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277311" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936507" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24935567" sideWeight="0.71031743" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3994709" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.71031743" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2893726" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24774194" sideWeight="0.8473389" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15266107" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925257" sideWeight="0.6706349" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936507" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936507" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -379,11 +555,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../TranslucentShapes/src/translucentshapes/FancyFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="47" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../TranslucentShapes/src/translucentshapes/FancyFrame.form">
       <provider selected="true" editor-type-id="text-editor">
         <state line="125" column="98" selection-start="7325" selection-end="7325" vertical-scroll-proportion="0.0" />
@@ -414,34 +585,9 @@
         <state line="73" column="16" selection-start="2129" selection-end="2129" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FeeshTank/FeeshContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="49" selection-start="18" selection-end="18" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FeeshTank/Ball.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="197" column="4" selection-start="5692" selection-end="5692" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_04/src.zip!/java/awt/event/MouseEvent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="284" column="63" selection-start="8306" selection-end="48059" vertical-scroll-proportion="0.03612717" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FeeshTank/jumpBall.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="49" selection-start="406" selection-end="406" vertical-scroll-proportion="0.035460994" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FeeshTank/wrapBall.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="18" selection-start="20" selection-end="38" vertical-scroll-proportion="0.035460994" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FeeshTank/Feesh.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="8" selection-start="505" selection-end="505" vertical-scroll-proportion="0.4680851" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FeeshTank/AWTUtilitiesWrapper.java">
@@ -449,14 +595,85 @@
         <state line="80" column="0" selection-start="3328" selection-end="3328" vertical-scroll-proportion="0.035460994" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FeeshTank/BallClient.java">
+    <entry file="file://$PROJECT_DIR$/src/FeeshTank/Feesh.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="123" selection-start="461" selection-end="461" vertical-scroll-proportion="0.03612717" />
+        <state line="24" column="36" selection-start="495" selection-end="495" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FeeshTank/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="69" selection-start="246" selection-end="246" vertical-scroll-proportion="0.4609929" />
+        <state line="12" column="40" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FeeshTank/BallServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="5" selection-start="273" selection-end="273" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FeeshTank/jumpBall.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="10" selection-start="324" selection-end="324" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="docComment;class#jumpBall#0" expanded="false" />
+            <element signature="method#jumpBall#0;class#jumpBall#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FeeshTank/wrapBall.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="7" selection-start="566" selection-end="566" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="docComment;class#wrapBall#0" expanded="false" />
+            <element signature="method#step#0;class#wrapBallFrame#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FeeshTank/Ball.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="98" column="48" selection-start="2589" selection-end="2637" vertical-scroll-proportion="-15.2">
+          <folding>
+            <element signature="method#Ball#0;class#Ball#0" expanded="false" />
+            <element signature="method#step#0;class#Ball#0" expanded="false" />
+            <element signature="method#die#0;class#Ball#0" expanded="false" />
+            <element signature="method#stopDisplaying#0;class#Ball#0" expanded="false" />
+            <element signature="method#isDisplaying#0;class#Ball#0" expanded="false" />
+            <element signature="method#BallFrame#0;class#BallFrame#0" expanded="false" />
+            <element signature="method#initWindow#0;class#BallFrame#0" expanded="false" />
+            <element signature="class#3528:3930" expanded="false" />
+            <element signature="method#mouseDragged#0;class#3528:3930" expanded="false" />
+            <element signature="method#mousePressed#0;class#3528:3930" expanded="false" />
+            <element signature="docComment;method#initComponents#0;class#BallFrame#0" expanded="false" />
+            <element signature="method#initComponents#0;class#BallFrame#0" expanded="false" />
+            <element signature="e#4407#4496#0" expanded="false" />
+            <element signature="method#setColor#0;class#BallFrame#0" expanded="false" />
+            <element signature="method#step#0;class#BallFrame#0" expanded="false" />
+            <element signature="e#7726#7765#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FeeshTank/BallClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="30" selection-start="748" selection-end="748" vertical-scroll-proportion="-74.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FeeshTank/FeeshContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="51" selection-start="388" selection-end="388" vertical-scroll-proportion="0.6968641">
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
