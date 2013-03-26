@@ -18,21 +18,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <line_breakpoints>
-      <breakpoint url="file://$PROJECT_DIR$/src/FeeshTank/Main.java" line="15" class="FeeshTank.Main" package="FeeshTank">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
     <breakpoint_any>
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -73,34 +58,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FeeshTank/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="12" selection-start="105" selection-end="105" vertical-scroll-proportion="0.2964427">
+            <state line="15" column="0" selection-start="248" selection-end="248" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BallClient.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="BallClient.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FeeshTank/BallClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="100" column="14" selection-start="2855" selection-end="2855" vertical-scroll-proportion="-201.0">
+            <state line="154" column="46" selection-start="4184" selection-end="4184" vertical-scroll-proportion="0.23625255">
               <folding>
                 <element signature="docComment;class#BallClient#0" expanded="false" />
-                <element signature="class#1537:1676" expanded="false" />
-                <element signature="method#run#0;class#1537:1676" expanded="false" />
-                <element signature="class#1714:2240" expanded="false" />
-                <element signature="method#run#0;class#1714:2240" expanded="false" />
-                <element signature="class#2275:2741" expanded="false" />
-                <element signature="method#run#0;class#2275:2741" expanded="false" />
                 <element signature="method#step#0;class#BallClient#0" expanded="false" />
                 <element signature="e#2997#3042#0" expanded="false" />
                 <element signature="method#getFeeshList#0;class#BallClient#0" expanded="false" />
                 <element signature="method#getFeeshListExcluding#0;class#BallClient#0" expanded="false" />
                 <element signature="method#removeFeesh#0;class#BallClient#0" expanded="false" />
-                <element signature="method#sendList#0;class#BallClient#0" expanded="false" />
-                <element signature="method#receiveList#0;class#BallClient#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -210,10 +187,10 @@
         <option value="$PROJECT_DIR$/src/FeeshTank/ServerSocket.java" />
         <option value="$PROJECT_DIR$/src/FeeshTank/FeeshContainer.java" />
         <option value="$PROJECT_DIR$/src/FeeshTank/Feesh.java" />
-        <option value="$PROJECT_DIR$/src/FeeshTank/BallClient.java" />
         <option value="$PROJECT_DIR$/src/FeeshTank/wrapBall.java" />
         <option value="$PROJECT_DIR$/src/FeeshTank/jumpBall.java" />
         <option value="$PROJECT_DIR$/src/FeeshTank/Ball.java" />
+        <option value="$PROJECT_DIR$/src/FeeshTank/BallClient.java" />
       </list>
     </option>
   </component>
@@ -484,7 +461,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1616" height="886" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925257" sideWeight="0.6706349" order="0" side_tool="false" content_ui="tabs" />
@@ -498,7 +475,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936507" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24903226" sideWeight="0.7521008" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24903226" sideWeight="0.7521008" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24789916" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925257" sideWeight="0.6706349" order="2" side_tool="false" content_ui="tabs" />
@@ -567,11 +544,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../TranslucentShapes/src/translucentshapes/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="40" selection-start="58" selection-end="58" vertical-scroll-proportion="0.06995885" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../TranslucentShapes/src/translucentshapes/ControlFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="33" selection-start="588" selection-end="609" vertical-scroll-proportion="0.0" />
@@ -651,28 +623,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FeeshTank/BallClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="14" selection-start="2855" selection-end="2855" vertical-scroll-proportion="-201.0">
-          <folding>
-            <element signature="docComment;class#BallClient#0" expanded="false" />
-            <element signature="class#1537:1676" expanded="false" />
-            <element signature="method#run#0;class#1537:1676" expanded="false" />
-            <element signature="class#1714:2240" expanded="false" />
-            <element signature="method#run#0;class#1714:2240" expanded="false" />
-            <element signature="class#2275:2741" expanded="false" />
-            <element signature="method#run#0;class#2275:2741" expanded="false" />
-            <element signature="method#step#0;class#BallClient#0" expanded="false" />
-            <element signature="e#2997#3042#0" expanded="false" />
-            <element signature="method#getFeeshList#0;class#BallClient#0" expanded="false" />
-            <element signature="method#getFeeshListExcluding#0;class#BallClient#0" expanded="false" />
-            <element signature="method#removeFeesh#0;class#BallClient#0" expanded="false" />
-            <element signature="method#sendList#0;class#BallClient#0" expanded="false" />
-            <element signature="method#receiveList#0;class#BallClient#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FeeshTank/Ball.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="48" column="25" selection-start="940" selection-end="940" vertical-scroll-proportion="-5.8333335">
@@ -703,8 +653,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FeeshTank/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="12" selection-start="105" selection-end="105" vertical-scroll-proportion="0.2964427">
+        <state line="15" column="0" selection-start="248" selection-end="248" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_04/src.zip!/java/lang/Thread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="677" column="30" selection-start="25507" selection-end="25507" vertical-scroll-proportion="0.3576017">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FeeshTank/BallClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="154" column="46" selection-start="4184" selection-end="4184" vertical-scroll-proportion="0.23625255">
+          <folding>
+            <element signature="docComment;class#BallClient#0" expanded="false" />
+            <element signature="method#step#0;class#BallClient#0" expanded="false" />
+            <element signature="e#2997#3042#0" expanded="false" />
+            <element signature="method#getFeeshList#0;class#BallClient#0" expanded="false" />
+            <element signature="method#getFeeshListExcluding#0;class#BallClient#0" expanded="false" />
+            <element signature="method#removeFeesh#0;class#BallClient#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

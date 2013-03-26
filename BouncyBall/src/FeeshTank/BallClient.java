@@ -152,14 +152,16 @@ public class BallClient implements FeeshContainer {
     @Override
     public void sendList() {
         try {
-            Socket s = new Socket("localhost", 2002);
+            Socket s = new Socket("192.168.2.4", 2002);
             OutputStream os = s.getOutputStream();
             ObjectOutputStream oos = new ObjectOutputStream(os);
+            System.out.println(myOutgoingTransferList.size()+ "feesh to transfer");
             oos.writeObject(myOutgoingTransferList);
             myOutgoingTransferList.clear();
             oos.close();
             os.close();
             s.close();
+            System.out.println("Feesh successfully transfered");
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -170,15 +172,14 @@ public class BallClient implements FeeshContainer {
     public void receiveList() {
         int port = 2002;
         try {
-            System.out.println("Hello");
+
             ServerSocket ss = new ServerSocket(port);
             Socket s = ss.accept();
-            System.out.println("Hello 2");
             InputStream is = s.getInputStream();
             ObjectInputStream ois = new ObjectInputStream(is);
             ArrayList<Feesh> receivedList = (ArrayList<Feesh>) ois.readObject();
-            System.out.println(receivedList);
-            for(Feesh curFeesh :receivedList)
+            System.out.println(receivedList.size() +"feesh recieved: " +receivedList);
+           for(Feesh curFeesh :receivedList)
             {
                 curFeesh.startDisplaying();
             }
