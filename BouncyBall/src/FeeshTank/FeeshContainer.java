@@ -33,6 +33,8 @@ abstract class FeeshContainer {
         try {
             FileInputStream in = new FileInputStream(".env");
             defaultProps.load(in);
+
+            if(debug)System.out.println(".env properties file found "+ defaultProps);
             in.close();
             otherFeeshContainerIPs.add(defaultProps.getProperty("firstIP"));
             port = Integer.parseInt(defaultProps.getProperty("port"));
