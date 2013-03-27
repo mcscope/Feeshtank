@@ -17,8 +17,8 @@ public class wrapBall extends Ball {
     }
 
 
-    public void createBall(GraphicsConfiguration translucencyCapableGC) {
-        myFrame = new wrapBallFrame(translucencyCapableGC,this,ballSavedDataExists);
+    public void createFeeshFrame(GraphicsConfiguration translucencyCapableGC) {
+        myFrame = new wrapBallFrame(translucencyCapableGC,this, feeshSavedDataExists);
     }
 
 }
@@ -33,7 +33,6 @@ class wrapBallFrame extends BallFrame
     {
 
         Rectangle screenDimensions = screen.getBounds();
-        Rectangle bounds = getBounds();
 
 
         double speedLimit=10.0;
@@ -56,11 +55,7 @@ class wrapBallFrame extends BallFrame
         myBall.x=(myBall.x<-myBall.ballWidth)? myBall.x+ screenDimensions.width +myBall.ballWidth : myBall.x;
         myBall.y=(myBall.y<-myBall.ballHeight)? myBall.y+ screenDimensions.height +myBall.ballWidth: myBall.y;
 
-        bounds.x = (int) myBall.x-myBall.ballHeight/2;
-        bounds.y= (int) myBall.y-myBall.ballWidth/2;
-
-        setBounds(bounds);
-
+        updateLocation();
 
     }
 

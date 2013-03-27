@@ -11,7 +11,7 @@ public class HelloNetworkClient
 		BufferedReader instream = null;
 		PrintWriter outstream = null;
 		String destination = "192.168.2.8";
-		int portNum = 5556;
+		int portNum = 2002;
 		
 		try
 		{

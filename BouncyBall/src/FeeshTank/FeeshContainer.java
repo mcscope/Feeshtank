@@ -1,9 +1,13 @@
 package FeeshTank;
 
 import java.io.*;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Properties;
+import java.util.Random;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,10 +21,30 @@ abstract class FeeshContainer {
     ArrayList<Feesh> myFeeshList = new ArrayList<Feesh>();
     ArrayList<Feesh> myOutgoingTransferList = new ArrayList<Feesh>();
     ArrayList<Feesh> myIncomingTransferList = new ArrayList<Feesh>();
+    ArrayList<String> otherFeeshContainerIPs = new ArrayList<String>();
+    public final Random random = new Random();
+    public boolean headless;
     public int port = 2002;
-    public String targetIP = "192.168.2.4";
     public boolean debug = true;
     private int updateCount = 0;
+
+    FeeshContainer() {
+        Properties defaultProps = new Properties();
+        try {
+            FileInputStream in = new FileInputStream(".env");
+            defaultProps.load(in);
+            in.close();
+            otherFeeshContainerIPs.add(defaultProps.getProperty("firstIP"));
+            port = Integer.parseInt(defaultProps.getProperty("port"));
+            headless = Boolean.parseBoolean(defaultProps.getProperty("headless"));
+        } catch (IOException e) {
+            port = 2002;
+            otherFeeshContainerIPs.add("192.168.2.4");
+            headless = false;
+        }
+
+
+    }
 
     abstract public ArrayList<Feesh> getFeeshList();
 
@@ -28,65 +52,100 @@ abstract class FeeshContainer {
 
     abstract public boolean removeFeesh(Feesh toRemove);
 
-    abstract public void step();
+    public void step() {
+        // Execute one update step
+        //           System.out.println(updateCount);
 
-    public void sendList() {
-        try {
 
-            if (debug) System.out.println("outgoing: contacting " + targetIP + ":" + port);
-            Socket s = new Socket(targetIP, port);
-            if (debug) System.out.println("outgoing: response from" + targetIP + ":" + port);
-            PrintWriter out = new PrintWriter(s.getOutputStream(), true);
-            OutputStream os = s.getOutputStream();
-            ObjectOutputStream oos = new ObjectOutputStream(os);
-            BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
-            //if (in.readLine().equals("Feesh?")) {
-            //  out.println("Feesh!");
-            if (debug) System.out.println("outgoing: " + myOutgoingTransferList.size() + "feesh to transfer");
-            for (Feesh cur : myOutgoingTransferList) {
-                cur.stopDisplaying();
+        //all the feesh must update
+        synchronized (myIncomingTransferList) {
+            for (Feesh curFeesh : myIncomingTransferList) {
+                if(!headless) curFeesh.startDisplaying();
             }
-            oos.writeObject(myOutgoingTransferList);
-            myOutgoingTransferList.clear();
+            myFeeshList.addAll(myIncomingTransferList);
+            myIncomingTransferList.clear();
+        }
+        Feesh curFeesh;
+        Iterator<Feesh> e = myFeeshList.iterator();
+        while (e.hasNext()) {
+            curFeesh = e.next();
+           curFeesh.step();
+            //todo : call Collide on colliding Feesh
+            if (!curFeesh.isDisplaying()) {
+                myOutgoingTransferList.add(curFeesh);
+                e.remove();
+            }
 
-            //if (in.readLine().equals("Feesh Recieved")) {
-            if (debug) System.out.println("outgoing: Feesh successfully transfered");
-            //}
-
-            //}
-
-            oos.close();
-            in.close();
-            out.close();
-            os.close();
-            s.close();
-        } catch (Exception e) {
-            System.out.println(e);
         }
 
+
+        // Delay for timing control and give other threads a chance
+        try {
+            Thread.sleep(1000 / UPDATE_RATE);  // milliseconds
+        } catch (InterruptedException ex) {
+        }
+
+    }
+
+    public void sendList() {
+        if (!otherFeeshContainerIPs.isEmpty()) {
+            String targetIP = otherFeeshContainerIPs.get(random.nextInt(otherFeeshContainerIPs.size()));
+            try {
+
+                if (debug) System.out.println("outgoing: contacting " + targetIP + ":" + port);
+                Socket s = new Socket(targetIP, port);
+                if (debug) System.out.println("outgoing: response from" + targetIP + ":" + port);
+                OutputStream os = s.getOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(os);
+
+                //send the set of IPs that you have
+                oos.writeObject(otherFeeshContainerIPs);
+
+                if (debug) System.out.println("outgoing: " + myOutgoingTransferList.size() + "feesh to transfer");
+                for (Feesh cur : myOutgoingTransferList) {
+                    cur.stopDisplaying();
+                }
+                oos.writeObject(myOutgoingTransferList);
+                myOutgoingTransferList.clear();
+
+                if (debug) System.out.println("outgoing: Feesh successfully transfered");
+
+
+                oos.close();
+                os.close();
+                s.close();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+
+        }
     }
 
     public void receiveList(Socket s) {
         try {
 
-            PrintWriter out = new PrintWriter(s.getOutputStream(), true);
             InputStream is = s.getInputStream();
-            BufferedReader in = new BufferedReader(new InputStreamReader(is));
 
-            //   out.println("Feesh?");
-            //  if (in.readLine().equals("Feesh!")) {
             ObjectInputStream ois = new ObjectInputStream(is);
+            //read a list of addresses from the socket
+            ArrayList<String> receivedIPSet = (ArrayList<String>) ois.readObject();
+            //ToDo: add an anti-masturbation (connecting to self) bit here.
+          receivedIPSet.add(s.getInetAddress().getHostAddress());
+            synchronized (otherFeeshContainerIPs)
+           {
+               //add all IPs that we don't already have to our list.
+            for (String IP : receivedIPSet) {
+                if (!otherFeeshContainerIPs.contains(IP))
+                    otherFeeshContainerIPs.add(IP);
+            }
+           }
+            //      read a list of fish from the socket
             ArrayList<Feesh> receivedList = (ArrayList<Feesh>) ois.readObject();
-            if (debug) System.out.println("server:" + receivedList.size() + " feesh recieved: " + receivedList);
-            for (Feesh curFeesh : receivedList) {
-                curFeesh.startDisplaying();
-                    }
+            if (debug) System.out.println("server:" + receivedList.size() + " feesh recieved: " + receivedList + " from " + s.getInetAddress().getHostAddress());
+            synchronized (myIncomingTransferList) {
                 myIncomingTransferList.addAll(receivedList);
-                out.println("Feesh Recieved");
-
+            }
             is.close();
-            out.close();
-            in.close();
             s.close();
         } catch (Exception e) {
             e.printStackTrace();

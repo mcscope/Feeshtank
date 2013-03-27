@@ -16,10 +16,7 @@ import java.util.Random;
 
 
 public class Ball extends Feesh {
-    public BallFrame myFrame;
-    private boolean displaying;
 
-    boolean ballSavedDataExists=false;
     double x;
     double y;
     double xspeed;
@@ -31,7 +28,6 @@ public class Ball extends Feesh {
 
     public Ball() {
         super();
-        displaying = false;
 
 
     }
@@ -48,57 +44,15 @@ public class Ball extends Feesh {
         }
     }
 
-    public void die() {
-        stopDisplaying();
-    }
 
-    public void stopDisplaying() {
-        displaying = false;
-        if (myFrame != null) {
-            myFrame.dispose();
-            myFrame=null;
-        }
+public void createFeeshFrame(GraphicsConfiguration translucencyCapableGC) {
 
-    }
-
-    public void startDisplaying() {
-        stopDisplaying();
-
-        GraphicsConfiguration translucencyCapableGC = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
-        if (!AWTUtilitiesWrapper.isTranslucencyCapable(translucencyCapableGC)) {
-            translucencyCapableGC = null;
-
-            GraphicsEnvironment env =
-                    GraphicsEnvironment.getLocalGraphicsEnvironment();
-            GraphicsDevice[] devices = env.getScreenDevices();
-
-            for (int i = 0; i < devices.length && translucencyCapableGC == null; i++) {
-                GraphicsConfiguration[] configs = devices[i].getConfigurations();
-                for (int j = 0; j < configs.length && translucencyCapableGC == null; j++) {
-                    if (AWTUtilitiesWrapper.isTranslucencyCapable(configs[j])) {
-                        translucencyCapableGC = configs[j];
-                    }
-                }
-            }
-        }
-        createBall(translucencyCapableGC);
-        ballSavedDataExists=true;
-        displaying = true;
-    }
-
-    public void createBall(GraphicsConfiguration translucencyCapableGC) {
-
-            myFrame = new BallFrame(translucencyCapableGC,this,ballSavedDataExists);
-
-    }
-
-    boolean isDisplaying() {
-        return displaying;
-    }
+       myFrame = new BallFrame(translucencyCapableGC,this, feeshSavedDataExists);
 
 }
+}
 
-class BallFrame extends javax.swing.JFrame implements javax.swing.RootPaneContainer {
+class BallFrame extends FeeshFrame {
     //global vars
 
     private javax.swing.JPanel jPanel1;
@@ -158,8 +112,7 @@ class BallFrame extends javax.swing.JFrame implements javax.swing.RootPaneContai
 
             public void mousePressed(MouseEvent event) {
                 if (event.getButton() == MouseEvent.BUTTON3) {
-
-                    dispose();
+                    myBall.die();
                 }
 
 
@@ -235,6 +188,7 @@ class BallFrame extends javax.swing.JFrame implements javax.swing.RootPaneContai
         jPanel1.add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
+        updateLocation();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -251,7 +205,7 @@ class BallFrame extends javax.swing.JFrame implements javax.swing.RootPaneContai
 
     public void step() {
         Rectangle screenDimensions = screen.getBounds();
-        Rectangle bounds = getBounds();
+
         double speedLimit = 15.0;
         double slowMultiple = .9;
         double bounceMultiplier = -1;
@@ -284,6 +238,11 @@ class BallFrame extends javax.swing.JFrame implements javax.swing.RootPaneContai
         myBall.y+= myBall.yspeed;
 //        x=x % screenDimensions.width;
 //        y= y% screenDimensions.height;
+        updateLocation();
+    }
+
+    protected void updateLocation() {
+        Rectangle bounds = getBounds();
         bounds.x= (int) myBall.x;
         bounds.y = (int) myBall.y;
 

@@ -15,8 +15,8 @@ public class jumpBall extends Ball {
     }
 
 
-    public void createBall(GraphicsConfiguration translucencyCapableGC) {
-        myFrame = new jumpBallFrame(translucencyCapableGC,this,ballSavedDataExists);
+    public void createFeeshFrame(GraphicsConfiguration translucencyCapableGC) {
+        myFrame = new jumpBallFrame(translucencyCapableGC,this, feeshSavedDataExists);
     }
 
 }
@@ -34,7 +34,6 @@ class jumpBallFrame extends BallFrame
         double slowMultiple=.8;
         double bounceMultiplier = -8;
 
-        Rectangle bounds = getBounds();
         double speedLimit=10.0;
         //if going too fast!
         if(myBall.xspeed>speedLimit || myBall.xspeed<-1*speedLimit)
@@ -58,13 +57,8 @@ class jumpBallFrame extends BallFrame
 
         myBall.x+= myBall.xspeed;
         myBall.y+= myBall.yspeed;
-//        x=myBall.x% screenDimensions.width;
-//        y= y% screenDimensions.height;
 
-        bounds.x= (int) myBall.x;
-        bounds.y = (int) myBall.y;
-
-        setBounds(bounds);
+        updateLocation();
     }
 
 

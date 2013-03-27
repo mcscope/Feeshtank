@@ -9,7 +9,7 @@ public class HelloNetworkServer
 	{
 		ServerSocket myServerSocket = null;
 		//String destination = "samuel-clamons-macbook-pro.local";
-		int portNum = 5556;
+		int portNum = 2002;
 		
 		try
 		{
