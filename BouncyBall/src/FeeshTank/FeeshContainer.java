@@ -1,9 +1,9 @@
 package FeeshTank;
 
 import java.io.*;
-import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Properties;
@@ -23,19 +23,20 @@ abstract class FeeshContainer {
     ArrayList<Feesh> myIncomingTransferList = new ArrayList<Feesh>();
     ArrayList<String> otherFeeshContainerIPs = new ArrayList<String>();
     public final Random random = new Random();
-    public boolean headless;
-    public int port = 2002;
+    public boolean headless=false;
     public boolean debug = true;
+    public boolean prune= true;
+    public boolean masturbate = false; //do I connect to myself or not?
+    public int port = 2002;
     private int updateCount = 0;
     private int spawnInterval=0;
     private int migrateInterval=0;
+    private int sendInterval=200;
 
     FeeshContainer() {
         Properties defaultProps = new Properties();
 
-        port = 2002;
         otherFeeshContainerIPs.add("192.168.2.4");
-        headless = false;
         try {
             FileInputStream in = new FileInputStream(".env");
             defaultProps.load(in);
@@ -44,12 +45,15 @@ abstract class FeeshContainer {
             in.close();
             if(defaultProps.containsKey("firstIP")) otherFeeshContainerIPs.add(defaultProps.getProperty("firstIP"));
 
-            if(defaultProps.containsKey("port")) port = Integer.parseInt(defaultProps.getProperty("port"));
-
             if(defaultProps.containsKey("headless")) headless = Boolean.parseBoolean(defaultProps.getProperty("headless"));
+            if(defaultProps.containsKey("masturbate")) masturbate = Boolean.parseBoolean(defaultProps.getProperty("masturbate"));
+            if(defaultProps.containsKey("prune")) prune = Boolean.parseBoolean(defaultProps.getProperty("prune"));
+
+            if(defaultProps.containsKey("port")) port = Integer.parseInt(defaultProps.getProperty("port"));
             if(defaultProps.containsKey("spawnInterval")) spawnInterval =   Integer.parseInt(defaultProps.getProperty("spawnInterval"));
             if(defaultProps.containsKey("migrateInterval")) migrateInterval = Integer.parseInt(defaultProps.getProperty("migrateInterval"));
 
+            if(defaultProps.containsKey("sendInterval")) migrateInterval = Integer.parseInt(defaultProps.getProperty("SendInterval"));
 
         } catch (IOException e) {
           if(debug)  System.out.println(".env file not found");
@@ -145,23 +149,31 @@ abstract class FeeshContainer {
                 oos.close();
                 os.close();
                 s.close();
-            } catch (Exception e) {
+            } catch (SocketTimeoutException e) {
+                if(prune) otherFeeshContainerIPs.remove(targetIP);
+               System.out.println(e);
+            }
+            catch (IOException e) {
+
                 System.out.println(e);
             }
 
+        }
+        else
+        {
+            if(debug) System.out.println("Outgoing: IP list empty. Can not attempt to connect ");
         }
     }
 
     public void receiveList(Socket s) {
         try {
-
             InputStream is = s.getInputStream();
 
             ObjectInputStream ois = new ObjectInputStream(is);
             //read a list of addresses from the socket
             ArrayList<String> receivedIPSet = (ArrayList<String>) ois.readObject();
-            //ToDo: add an anti-masturbation (connecting to self) bit here.
           receivedIPSet.add(s.getInetAddress().getHostAddress());
+
             synchronized (otherFeeshContainerIPs)
            {
                //add all IPs that we don't already have to our list.
@@ -169,6 +181,7 @@ abstract class FeeshContainer {
                 if (!otherFeeshContainerIPs.contains(IP))
                     otherFeeshContainerIPs.add(IP);
             }
+               if(!masturbate) otherFeeshContainerIPs.remove(s.getLocalAddress().getHostAddress());
                if(debug) System.out.println("List of IPs: "+ otherFeeshContainerIPs);
            }
             //      read a list of fish from the socket
@@ -222,7 +235,7 @@ abstract class FeeshContainer {
         Thread sendThread = new Thread() {
             public void run() {
                 while (true) {
-                    if (updateCount % 200 == 0) {
+                    if (updateCount % sendInterval == 0) {
                         //attempt to contact server once every while
 
                         sendList();
