@@ -22,22 +22,26 @@ public class BallClient extends FeeshContainer {
         super(); //initalizes env file values
         for (int x = 0; x < numBalls; x += 1) {
 
-            int ballSelector = random.nextInt(6);
-            if (ballSelector < 2)
-                bouncy = new jumpBall();
-            else if (ballSelector > 4)
-                bouncy = new wrapBall();
-            else
-                bouncy = new Ball();
-
-            bouncy.startDisplaying();
-            myFeeshList.add(bouncy);
+            createFeesh();
 
         }
 
         createThreads();
 
 
+    }
+
+    public void createFeesh() {
+        int ballSelector = random.nextInt(6);
+        if (ballSelector < 2)
+            bouncy = new jumpBall();
+        else if (ballSelector > 4)
+            bouncy = new wrapBall();
+        else
+            bouncy = new Ball();
+
+        if(!headless)   bouncy.startDisplaying();
+        myFeeshList.add(bouncy);
     }
 
 

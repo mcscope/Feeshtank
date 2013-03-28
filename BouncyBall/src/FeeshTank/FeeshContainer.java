@@ -27,26 +27,38 @@ abstract class FeeshContainer {
     public int port = 2002;
     public boolean debug = true;
     private int updateCount = 0;
+    private int spawnInterval=0;
+    private int migrateInterval=0;
 
     FeeshContainer() {
         Properties defaultProps = new Properties();
+
+        port = 2002;
+        otherFeeshContainerIPs.add("192.168.2.4");
+        headless = false;
         try {
             FileInputStream in = new FileInputStream(".env");
             defaultProps.load(in);
 
             if(debug)System.out.println(".env properties file found "+ defaultProps);
             in.close();
-            otherFeeshContainerIPs.add(defaultProps.getProperty("firstIP"));
-            port = Integer.parseInt(defaultProps.getProperty("port"));
-            headless = Boolean.parseBoolean(defaultProps.getProperty("headless"));
+            if(defaultProps.containsKey("firstIP")) otherFeeshContainerIPs.add(defaultProps.getProperty("firstIP"));
+
+            if(defaultProps.containsKey("port")) port = Integer.parseInt(defaultProps.getProperty("port"));
+
+            if(defaultProps.containsKey("headless")) headless = Boolean.parseBoolean(defaultProps.getProperty("headless"));
+            if(defaultProps.containsKey("spawnInterval")) spawnInterval =   Integer.parseInt(defaultProps.getProperty("spawnInterval"));
+            if(defaultProps.containsKey("migrateInterval")) migrateInterval = Integer.parseInt(defaultProps.getProperty("migrateInterval"));
+
+
         } catch (IOException e) {
-            port = 2002;
-            otherFeeshContainerIPs.add("192.168.2.4");
-            headless = false;
+          if(debug)  System.out.println(".env file not found");
         }
 
 
     }
+
+    abstract public void createFeesh() ;
 
     abstract public ArrayList<Feesh> getFeeshList();
 
@@ -68,16 +80,33 @@ abstract class FeeshContainer {
             myIncomingTransferList.clear();
         }
         Feesh curFeesh;
+
+        if(spawnInterval !=0 && random.nextDouble()> (1.0-(1.0/spawnInterval)))
+        {
+            createFeesh();
+        }
+
+
+        synchronized (myOutgoingTransferList )
+        {
+       //sometimes fish leave.  The frequency is defined by migrateinterval
+            if(migrateInterval !=0 && random.nextDouble()> (1.0-(1.0/migrateInterval)) &&myFeeshList.size()>0)
+            {  curFeesh=myFeeshList.get(random.nextInt(myFeeshList.size()));
+                curFeesh.stopDisplaying();
+                myOutgoingTransferList.add(curFeesh);
+                myFeeshList.remove(curFeesh);
+            }
+
         Iterator<Feesh> e = myFeeshList.iterator();
         while (e.hasNext()) {
             curFeesh = e.next();
            curFeesh.step();
             //todo : call Collide on colliding Feesh
             if (!curFeesh.isDisplaying()) {
-                myOutgoingTransferList.add(curFeesh);
+                 myOutgoingTransferList.add(curFeesh);
                 e.remove();
             }
-
+        }
         }
 
 
@@ -96,14 +125,14 @@ abstract class FeeshContainer {
 
                 if (debug) System.out.println("outgoing: contacting " + targetIP + ":" + port);
                 Socket s = new Socket(targetIP, port);
-                if (debug) System.out.println("outgoing: response from" + targetIP + ":" + port);
+                if (debug) System.out.println("outgoing: response from " + targetIP + ":" + port);
                 OutputStream os = s.getOutputStream();
                 ObjectOutputStream oos = new ObjectOutputStream(os);
 
                 //send the set of IPs that you have
                 oos.writeObject(otherFeeshContainerIPs);
 
-                if (debug) System.out.println("outgoing: " + myOutgoingTransferList.size() + "feesh to transfer");
+                if (debug) System.out.println("outgoing: " + myOutgoingTransferList.size() + " feesh to transfer");
                 for (Feesh cur : myOutgoingTransferList) {
                     cur.stopDisplaying();
                 }
@@ -140,6 +169,7 @@ abstract class FeeshContainer {
                 if (!otherFeeshContainerIPs.contains(IP))
                     otherFeeshContainerIPs.add(IP);
             }
+               if(debug) System.out.println("List of IPs: "+ otherFeeshContainerIPs);
            }
             //      read a list of fish from the socket
             ArrayList<Feesh> receivedList = (ArrayList<Feesh>) ois.readObject();
