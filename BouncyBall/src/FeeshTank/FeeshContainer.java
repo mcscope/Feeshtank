@@ -25,7 +25,7 @@ abstract class FeeshContainer {
     public final Random random = new Random();
     public boolean headless=false;
     public boolean debug = true;
-    public boolean prune= true;
+    public boolean prune= false;
     public boolean masturbate = false; //do I connect to myself or not?
     public int port = 2002;
     private int updateCount = 0;
@@ -35,10 +35,10 @@ abstract class FeeshContainer {
 
     FeeshContainer() {
         Properties defaultProps = new Properties();
-
+                                                //todo create Readme for configuration options
         otherFeeshContainerIPs.add("192.168.2.4");
         try {
-            FileInputStream in = new FileInputStream(".env");
+            FileInputStream in = new FileInputStream("settings.env");
             defaultProps.load(in);
 
             if(debug)System.out.println(".env properties file found "+ defaultProps);
